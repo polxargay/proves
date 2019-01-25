@@ -14,3 +14,4 @@ function main(a::Float64, b::Float64, c::Float64)
     println("result 1: ", quad1)
     println("result 2: ", quad2)
 end
+main(2.0, -2.0, -12.0)
