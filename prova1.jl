@@ -9,10 +9,9 @@ function blocB(x)
 end
 
 function server(A,B)
+    println("hola")
     blocA(A)
     blocB(B)
     y="ACK"
     println(bloc(A))
 end
-
-server(30,40)
