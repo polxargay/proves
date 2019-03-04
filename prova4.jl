@@ -1,11 +1,11 @@
-struct ServerA
-    id::Int32
-    name::Int32
+struct Foo
+  bar::Int32
+  baz::Int32
 end
 
-servidorA = ServerA(3,4)
-println(ServerA(3,4))
-servidorA2= servidorA
-servidorA2.id=1
-println(servidorA)
-println(servidorA2)
+foo = Foo(1,2)
+println(foo)
+foo2=foo
+println(foo2)
+foo2.bar=3
+println(foo2)
