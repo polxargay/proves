@@ -14,12 +14,13 @@ end
 #node1 = Nodes(1,"ACK")
 
 function create_server_node(num_nodes::Int64)
-    x=1
-    for x-1 in 1:num_nodes
-        println(x)
+    array_nodes = fill("0",(1,num_nodes))
+    for x in 1:num_nodes
+        array_nodes[x] =
     end
-    #println("node_$") # "node_$num_nodes"
+    println(nodes[1])
 end
+create_server_node(2)
 
 
 #=function server_send(server::Servidor1)

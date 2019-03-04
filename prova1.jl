@@ -1,17 +1,16 @@
-function blocA(x)
-    #println(x)
-    y = "ACK"
-    return y
+struct Nodes
+    id::Int64
+    ack::Any
 end
 
-function blocB(x)
-    println(x)
-end
 
-function server(A,B)
-    println("hola")
-    blocA(A)
-    blocB(B)
-    y="ACK"
-    println(bloc(A))
+function prov(num_nodes::Int64)
+no = Nodes[]
+    for x in 1:num_nodes
+        no[x] = Nodes(x,"ACK")
+        #push!(no,(1,"ACK"))
+        #println(no)
+    end
+    println(no)
 end
+prov(2)
