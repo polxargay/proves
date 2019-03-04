@@ -10,20 +10,30 @@ struct Nodes
 end
 
 #Create server and node
-serv = Servidor1(1,5.0,"comença a enviar")
-node = Nodes(1,"ACK")
+#serv = Servidor1(1,5.0,"comença a enviar")
+#node1 = Nodes(1,"ACK")
 
-function server_send(server::Servidor1)
-    println("\nServer with ID: ",server.id,", sending to node with message: '", server.data,"'\n\n")
-    println(response(node,server.data))
+function create_server_node(num_nodes::Int64)
+    x=1
+    for x-1 in 1:num_nodes
+        println(x)
+    end
+    #println("node_$") # "node_$num_nodes"
+end
+
+
+#=function server_send(server::Servidor1)
+    println("\n+Server with ID: ",server.id,", sending to node with message: '", server.data,"'")
+    response(node1,server.data)
+    println("+",node1.ack,"\n")
 end
 
 function response(node::Nodes, mesage::Any)
-    println("Respon el node ", node.id, ". Ha rebut el missatge '", mesage,"' i respon amb ",node.ack)
+    println("-Respon el node ", node.id, ". Ha rebut el missatge '", mesage,"' i respon amb ",node.ack)
     return node.ack
 end
 
-server_send(serv)
+server_send(serv)=#
 
 #=server=Servidor(0,5.0,"enviament")
 println("El servidor farà pulling cada ", server.timer," s")
