@@ -5,7 +5,18 @@ end
 
 
 function prov(num_nodes::Int64)
-    no = Nodes[2]
+    #Crear un vector amb el número de nodes que necessitem
+    nodes = Array(Int64,1)
+    println(nodes)
+    #=for x in 1:num_nodes
+        push!(nodes,x)
+    end
+    println(nodes[])
+
+    #Crear el vector de nodes com un vector d'structs Nodes
+    for x in 1:num_nodes
+        nodes[i] = Nodes(i,"ACK")
+    end=#
     #size_t *ptr = malloc(num_nodes * sizeof(size_t))
     #=for x in 1:num_nodes
         #prt[x].id = 1
