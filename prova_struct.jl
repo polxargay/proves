@@ -5,9 +5,12 @@ end
 nodes = []
 #println(x)
 for i in 1:10
-    push!(nodes,i)
+    #push!(nodes,i)
+    nodes[i] = typeof()
 end
+
 println(nodes)
+
 #node = Nodes_1([1,2],"Hello")
 #=node = Nodes_1(1,"ACK")
 println(typeof(node))
