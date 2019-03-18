@@ -5,8 +5,9 @@ struct EAXON
 end
 
 function main_function()
-    println("hello")
+    #println("hello")
     num_eaxon = num_eaxons()
+    println("Vols crear",num_eaxon," eaxons")
     create_eaxons(num_eaxon)
 end
 
@@ -20,7 +21,7 @@ println(num_eaxon)=#
 
 function num_eaxons()
     print("Quants eAXONs vols crear ")
-    num_eaxon = readline()
+    num_eaxon = parse(Int,readline())
     return num_eaxon
 end
 
