@@ -1,44 +1,33 @@
-struct Servidor1
-    id::Int64
-    timer::Float64
-    data::Any
+struct EAXON
+    id
+    message
+    EAXON(x) = new(x,"ACK")
 end
 
-struct Nodes
-    id::Int64
-    ack::Any
+#Create an empty array of EAXON struct
+eaxons = []
+
+function main_function()
+
+    neaxon = num_eaxons()
+    println("\nHas creat ",neaxon," eaxons\n") #prova de debug
+    eaxons_array = create_eaxons(neaxon)
+    println("\nS'han creat els següents eAXONs: ",eaxons_array)
+    println(eaxons_array[1].id)    
 end
 
-#Create server and node
-#serv = Servidor1(1,5.0,"comença a enviar")
-#node1 = Nodes(1,"ACK")
+#Creo el número d'eAXONs necessaris
+function num_eaxons()
+    print("Quants eAXONs vols crear ")
+    #la funció readline() retorna un String, per tant cal parsejar-lo com a Int
+    neaxon = parse(Int,readline())
+    return neaxon
+end
 
-function create_server_node(num_nodes::Int64)
-    array_nodes = fill("0",(1,num_nodes))
-    for x in 1:num_nodes
-        array_nodes[x] =
+#Assigno ID a cada un dels eAXONs
+function create_eaxons(neaxon)
+    for x in 1:neaxon
+        push!(eaxons,EAXON(x))
     end
-    println(nodes[1])
+    return eaxons
 end
-create_server_node(2)
-
-
-#=function server_send(server::Servidor1)
-    println("\n+Server with ID: ",server.id,", sending to node with message: '", server.data,"'")
-    response(node1,server.data)
-    println("+",node1.ack,"\n")
-end
-
-function response(node::Nodes, mesage::Any)
-    println("-Respon el node ", node.id, ". Ha rebut el missatge '", mesage,"' i respon amb ",node.ack)
-    return node.ack
-end
-
-server_send(serv)=#
-
-#=server=Servidor(0,5.0,"enviament")
-println("El servidor farà pulling cada ", server.timer," s")
-node1=Node(1)
-node2=Node(2)
-println("Node 1 amb ID: ", node1.id,", node 2 amb ID",node2.id)
-=#

@@ -1,7 +1,8 @@
 struct EAXON
     id
+    group
     message
-    EAXON(x) = new(x,"ACK")
+    EAXON(x,y) = new(x,y,"ACK")
 end
 
 #Create an empty array of EAXON struct
@@ -43,11 +44,7 @@ end
 #Assigno ID a cada un dels eAXONs
 function create_eaxons(neaxon)
     for x in 1:neaxon
-        push!(eaxons,EAXON(x))
+        push!(eaxons,EAXON_STRUCT(x))
     end
     return eaxons
-end
-
-function nueaxons(neaxons)
-    println("neaxons")
 end
