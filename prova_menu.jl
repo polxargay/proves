@@ -60,10 +60,10 @@ function assign_group(ideaxon)
     #println(eaxons[ideaxon].id)
     for x in 1:ideaxon
         if x == ideaxon
-            #push!(eaxons,EAXON(ideaxon,idgroup))
             eaxons[ideaxon].group = idgroup
         end
     end
     println("ara hi ha els següents eaxons",eaxons)
     #println("\nse li ha assignat el següent grup: ", eaxons[ideaxon].group)
+    return eaxons[ideaxon]
 end
