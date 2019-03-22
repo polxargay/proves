@@ -1,4 +1,4 @@
-struct EAXON
+mutable struct EAXON
     id
     group
     message
@@ -24,6 +24,11 @@ function main_function()
                 eaxons_array = create_eaxons(neaxon)
                 println("\nS'han creat els següents eAXONs: ",eaxons_array)
                 return main_function()
+            elseif (opc == 2)
+                print("A quin eAXON vols assignarli el grup? ")
+                ideaxon = parse(Int, readline())
+                idgrou = assign_group(ideaxon)
+                return main_function()
             elseif (opc == 5)
                 #println("\n")
             else
@@ -44,7 +49,21 @@ end
 #Assigno ID a cada un dels eAXONs
 function create_eaxons(neaxon)
     for x in 1:neaxon
-        push!(eaxons,EAXON_STRUCT(x))
+        push!(eaxons,EAXON(x,0))
     end
     return eaxons
+end
+
+function assign_group(ideaxon)
+    print("A quin grup el vols assignar? ")
+    idgroup = parse(Int,readline())
+    #println(eaxons[ideaxon].id)
+    for x in 1:ideaxon
+        if x == ideaxon
+            #push!(eaxons,EAXON(ideaxon,idgroup))
+            eaxons[ideaxon].group = idgroup
+        end
+    end
+    println("ara hi ha els següents eaxons",eaxons)
+    #println("\nse li ha assignat el següent grup: ", eaxons[ideaxon].group)
 end
