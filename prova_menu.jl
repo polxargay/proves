@@ -27,7 +27,8 @@ function main_function()
             elseif (opc == 2)
                 print("A quin eAXON vols assignarli el grup? ")
                 ideaxon = parse(Int, readline())
-                idgrou = assign_group(ideaxon)
+                idgroup = assign_group(ideaxon)
+                println("S'ha modificat el següent eaxon: ", idgroup)
                 return main_function()
             elseif (opc == 5)
                 #println("\n")
@@ -49,21 +50,23 @@ end
 #Assigno ID a cada un dels eAXONs
 function create_eaxons(neaxon)
     for x in 1:neaxon
+        #al final de l'array eaxons[], afegeixo els eaxons creats
         push!(eaxons,EAXON(x,0))
     end
     return eaxons
 end
 
+#assignar un grup a un dels eAXONS
 function assign_group(ideaxon)
     print("A quin grup el vols assignar? ")
-    idgroup = parse(Int,readline())
-    #println(eaxons[ideaxon].id)
+    idgroup = parse(Int,readline())#indico el grup que vol
+    #busco l'eAXON en qüestió en funció de l'ID
     for x in 1:ideaxon
         if x == ideaxon
-            eaxons[ideaxon].group = idgroup
+            eaxons[ideaxon].group = idgroup #assigno el valor del grup
         end
     end
-    println("ara hi ha els següents eaxons",eaxons)
+    println("ara hi ha els següents eaxons ",eaxons)
     #println("\nse li ha assignat el següent grup: ", eaxons[ideaxon].group)
     return eaxons[ideaxon]
 end
