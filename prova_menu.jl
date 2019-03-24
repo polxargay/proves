@@ -28,7 +28,17 @@ function main_function()
                 print("A quin eAXON vols assignarli el grup? ")
                 ideaxon = parse(Int, readline())
                 idgroup = assign_group(ideaxon)
-                println("S'ha modificat el següent eaxon: ", idgroup)
+                println("A l'eAXON ", ideaxon, " se li ha assignat el següent grup ", idgroup)
+                return main_function()
+            elseif (opc==3)
+                print("Amb quin eAXON et vols comunicar? ")
+                ideaxon = parse(Int,readline())
+                print("Quantes simulacions vols fer? ")
+                nsimulations = parse(Int, readline())
+                for x in 1:nsimulations
+                    message,ideaxon = communicate_eaxon(ideaxon)
+                    println("eAXON with ID ", ideaxon, "answers with message: '",message,"'")
+                end
                 return main_function()
             elseif (opc == 5)
                 #println("\n")
@@ -66,7 +76,23 @@ function assign_group(ideaxon)
             eaxons[ideaxon].group = idgroup #assigno el valor del grup
         end
     end
-    println("ara hi ha els següents eaxons ",eaxons)
-    #println("\nse li ha assignat el següent grup: ", eaxons[ideaxon].group)
-    return eaxons[ideaxon]
+    #println("Ara hi ha els següents eaxons ",eaxons)
+    return idgroup
+end
+
+#comunicar-se amb un eAXON
+function communicate_eaxon(ideaxon)
+#=demanar quantes simulacions es volen fer a cada un dels eAXONs (ex. enviar 1000
+sol·licituds a cada un dels eAXONS)=#
+
+
+######     INVESTIGAR COM POSAR UNA PROBABILITAT D'ERROR     ##########
+
+    for x in 1:ideaxon
+        if x == ideaxon
+            eaxons[ideaxon].message = "missatge rebut"
+            #println("eAXON with ID: ", eaxons[ideaxon].id, " answers with message: ",eaxons[ideaxon].message)
+        end
+    end
+    return eaxons[ideaxon].message,ideaxon
 end
