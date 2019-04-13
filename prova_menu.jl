@@ -37,7 +37,7 @@ function main_function()
                 nsimulations = parse(Int, readline())
                 for x in 1:nsimulations
                     message,ideaxon = communicate_eaxon(ideaxon)
-                    println("eAXON with ID ", ideaxon, "answers with message: '",message,"'")
+                    println(x," - eAXON with ID ", ideaxon, "answers with message: '",message,"'")
                 end
                 return main_function()
             elseif (opc == 5)
