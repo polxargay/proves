@@ -19,7 +19,6 @@ end
 
 #assignar un grup a un dels eAXONS
 function assign_group(ideaxon)
-    print("A quin grup el vols assignar? ")
     idgroup = parse(Int,readline())#indico el grup que vol
     #busco l'eAXON en qüestió en funció de l'ID
     for x in 1:ideaxon
